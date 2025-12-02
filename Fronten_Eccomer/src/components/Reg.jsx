@@ -46,17 +46,17 @@ const Reg = () => {
                 {/* Form Start */}
                 <form action="" onSubmit={handleForm}>
                     <label htmlFor="" className='block mb-2 text-gray-700'>Your Full Name</label>
-                    <input type="text" placeholder='Enter your Name..' className='w-full border border-gray-500 px-4 py-2 rounded-2xl focus:outline-none focus:ring-2 focus:text-purple-600' name="fname" id=""
+                    <input type="text" placeholder='Enter your Name..' className='w-full border border-gray-500 px-4 py-2 rounded-2xl focus:outline-none focus:ring-2 focus:text-purple-600' name="fname" id="name"
                         value={form.fname}
                         onChange={handleChange}
                     />
                     <label htmlFor="" className='block mb-2 text-gray-700'>Email</label>
-                    <input type="text" placeholder='Enter your email..' className='w-full border border-gray-500 px-4 py-2 rounded-2xl focus:outline-none focus:ring-2 focus:text-purple-600' name="email" id="" value={form.email}
+                    <input type="text" placeholder='Enter your email..' className='w-full border border-gray-500 px-4 py-2 rounded-2xl focus:outline-none focus:ring-2 focus:text-purple-600' name="email" id="email" value={form.email}
                         onChange={handleChange}
                     />
                     <label htmlFor="" className='block mb-2 text-gray-700'>Password</label>
                     <div className='relative mb-4'>
-                        <input type={showPassword ? "password" : "text"} placeholder='Enter password..' className='w-full border border-gray-500 px-4 py-2 rounded-2xl focus:outline-none focus:ring-2 focus:text-purple-600' name="pass" id="" value={form.pass}
+                        <input type={showPassword ? "password" : "text"} placeholder='Enter password..' className='w-full border border-gray-500 px-4 py-2 rounded-2xl focus:outline-none focus:ring-2 focus:text-purple-600' name="pass" id="pass" value={form.pass}
                             onChange={handleChange}
                         />
                         <button type='button' onClick={() => (setShowPassword(!showPassword))} className='text-xl absolute top-3 right-3 hover:text-green-700'>
