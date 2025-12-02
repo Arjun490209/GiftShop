@@ -20,7 +20,7 @@ const Product = () => {
       const record =await response.json()
       setProductAll(record.data)
     } catch (error) {
-      toast.error(error)
+      toast.error(error.message || "Something went wrong")
     }
 
   }
