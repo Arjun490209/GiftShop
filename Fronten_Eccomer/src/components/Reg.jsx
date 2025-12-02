@@ -46,7 +46,7 @@ const Reg = () => {
                 {/* Form Start */}
                 <form action="" onSubmit={handleForm}>
                     <label htmlFor="" className='block mb-2 text-gray-700'>Your Full Name</label>
-                    <input type="text" placeholder='Enter your Name..' className='w-full border border-gray-500 px-4 py-2 rounded-2xl focus:outline-none focus:ring-2 focus:text-purple-600' name="fname" id="name"
+                    <input type="text" placeholder='Enter your Name..' className='w-full border border-gray-500 px-4 py-2 rounded-2xl focus:outline-none focus:ring-2 focus:text-purple-600' name="fname" id="fname"
                         value={form.fname}
                         onChange={handleChange}
                     />
