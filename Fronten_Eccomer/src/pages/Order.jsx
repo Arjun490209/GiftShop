@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { cartTotal } from "../features/Cart/cartSlice";
 import {toast} from 'react-hot-toast'
-
+const API = import.meta.env.VITE_API_URL
 const Order = () => {
   const dispatch = useDispatch();
   const { cart, TotalPrice, TotalQuantity } = useSelector(
@@ -56,7 +56,7 @@ const Order = () => {
       const currency = "INR";
       const receipt = "receipt#1";
 
-      fetch(`/api/create-order`, {
+      fetch(`${API}/api/create-order`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -82,7 +82,7 @@ const Order = () => {
               const userId = localStorage.getItem("user");
 
               // !Varify payment
-              fetch(`/api/varify`, {
+              fetch(`${API}/api/varify`, {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",

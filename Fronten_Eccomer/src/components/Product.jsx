@@ -4,6 +4,7 @@ import toast from 'react-hot-toast'
 import {useDispatch} from 'react-redux'
 import {addToCart} from '../features/Cart/cartSlice'
 
+const API = import.meta.env.VITE_API_URL
 const Product = () => {
 
   const [productAll, setProductAll] = useState([])
@@ -15,7 +16,7 @@ const Product = () => {
 
   async function productData(selectCategory="All"){
     try {
-      const response = await fetch(`/api/userproduct?category=${selectCategory}`)
+      const response = await fetch(`${API}/api/userproduct?category=${selectCategory}`)
       const record =await response.json()
       setProductAll(record.data)
     } catch (error) {

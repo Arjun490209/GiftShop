@@ -4,6 +4,8 @@ import { useNavigate, Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { toast } from "react-hot-toast";
 
+
+const API = import.meta.env.VITE_API_URL
 const Login = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(true);
@@ -13,7 +15,7 @@ const Login = () => {
   async function handleForm(e) {
     e.preventDefault();
     try {
-      const response = await fetch(`/api/loginuser`, {
+      const response = await fetch(`${API}/api/loginuser`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(login),

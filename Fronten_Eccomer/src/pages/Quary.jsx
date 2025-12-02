@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import {toast} from 'react-hot-toast'
 import {useNavigate} from 'react-router-dom'
-
+const API = import.meta.env.VITE_API_URL
 const Quary = () => {
   const navigate = useNavigate()
 
@@ -11,7 +11,7 @@ const Quary = () => {
   async function handleForm(e) {
     try {
       e.preventDefault()
-      const response = await fetch(`/api/userquary`, {
+      const response = await fetch(`${API}/api/userquary`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(quary)

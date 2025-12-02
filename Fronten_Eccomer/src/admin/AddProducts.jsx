@@ -4,6 +4,8 @@ import {useNavigate, Link } from 'react-router-dom'
 import { IoMdArrowRoundBack } from "react-icons/io";
 import {toast} from 'react-hot-toast'
 
+const API = import.meta.env.VITE_API_URL
+
 const AddProducts = () => {
     const navigate = useNavigate()
 
@@ -19,7 +21,7 @@ const AddProducts = () => {
         formData.append("Cat", product.Cat)
         formData.append("image", Pimage)
         try {
-         const response =  await fetch(`/api/addadminproduct`, {
+         const response =  await fetch(`${API}/api/addadminproduct`, {
             method : "POST",
             body:formData
          })

@@ -8,8 +8,10 @@ const connectDB = require("./config/db") //! database ko bulaya
 connectDB()     //! database ko run kiye
 
 
+
 app.use(cors({
-  origin: process.env.CLIENT_URL,
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
 

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FaTimesCircle } from "react-icons/fa";
 import { toast } from "react-hot-toast";
 
+const API = import.meta.env.VITE_API_URL
 const SearchData = ({ onClose }) => {
   const [search, setSearch] = useState("");
   const [searchResult, setSearchResult] = useState([]);
@@ -14,7 +15,7 @@ const SearchData = ({ onClose }) => {
   useEffect(() => {
     const delayDebounce = setTimeout(() => {
       if (search.trim()) {
-        fetch(`/api/search?q=${search}`)
+        fetch(`${API}/api/search?q=${search}`)
           .then((res) => {
             return res.json();
           })

@@ -5,13 +5,15 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import {toast} from 'react-hot-toast'
 
+const API = import.meta.env.VITE_API_URL
+
 const AdminQuary = () => {
  
     const [query, setQuery] = useState([])
     
     async function queryAll() {
         try {
-            const response = await fetch(`/api/queryalldata`)
+            const response = await fetch(`${API}/api/queryalldata`)
             const record = await response.json()
             if(response.ok){
                 setQuery(record.data)
@@ -25,7 +27,7 @@ const AdminQuary = () => {
 
     async function handleDelete(id){
         try {
-            const response =await fetch(`/api/querydelete/${id}`,{
+            const response =await fetch(`${API}/api/querydelete/${id}`,{
                 method:"DELETE"
             })
             const record = await response.json()

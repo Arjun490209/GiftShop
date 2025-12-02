@@ -4,13 +4,15 @@ import { useEffect } from 'react'
 import { toast } from 'react-hot-toast'
 import { useState } from 'react'
 
+const API = import.meta.env.VITE_API_URL
+
 const AdminDashkbord = () => {
   const [product, setProduct] = useState([])
 
   async function getAllProduct() {
     try {
       const token = localStorage.getItem("adminToken");
-      const response =  await fetch(`/api/allproduct`, {
+      const response =  await fetch(`${API}/api/allproduct`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",

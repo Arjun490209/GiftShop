@@ -5,7 +5,7 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast'
 
-
+const API = import.meta.env.VITE_API_URL
 const QueryReply = () => {
 
     const [query, setQuery] = useState({ to: "", sub: "", body: "" })
@@ -15,7 +15,7 @@ const QueryReply = () => {
 
     async function queryData() {
         try {
-            const response = await fetch(`/api/querysingledata/${id}`)
+            const response = await fetch(`${API}/api/querysingledata/${id}`)
             const record = await response.json()
             if (response.ok) {
                 setQuery({ to: record.data.Email })
@@ -35,7 +35,7 @@ const QueryReply = () => {
     async function handleForm(e) {
         try {
             e.preventDefault()
-            const response = await fetch(`/api/mailreply/${id}`, {
+            const response = await fetch(`${API}/api/mailreply/${id}`, {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(query)

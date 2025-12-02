@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+const API = import.meta.env.VITE_API_URL
 
 const Admin = () => {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState("");
+
+  
 
   const navigate = useNavigate();
 
@@ -23,7 +26,7 @@ const Admin = () => {
   // -------------------------
   const handleLogin = async () => {
     try {
-      const res = await fetch(`/api/adminlogin`, {
+      const res = await fetch(`${API}/api/adminlogin`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: userId, password }),

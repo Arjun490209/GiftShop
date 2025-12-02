@@ -7,12 +7,14 @@ import { MdDelete } from "react-icons/md";
 import { toast } from 'react-hot-toast'
 import { useEffect } from 'react';
 
+const API = import.meta.env.VITE_API_URL
+
 const AdminProducts = () => {
   const [product, setProduct] = useState([]) 
 
   async function getAllProduct() {
     try {
-      const response = await fetch(`/api/getproduct`)
+      const response = await fetch(`${API}/api/getproduct`)
 
       const record = await response.json()
     
@@ -33,7 +35,7 @@ const AdminProducts = () => {
 
   async function handleDelete(id){
     try {
-      const response = await fetch(`/api/productdelete/${id}`,{
+      const response = await fetch(`${API}/api/productdelete/${id}`,{
         method: "DELETE"
       })
       const record =await response.json()

@@ -6,6 +6,8 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { toast } from 'react-hot-toast'
 
+const API = import.meta.env.VITE_API_URL
+
 
 const EditProducts = () => {
     const { id } = useParams()
@@ -15,7 +17,7 @@ const EditProducts = () => {
 
     async function editProductData() {
         try {
-            const response = await fetch(`/api/editproductdata/${id}`)
+            const response = await fetch(`${API}/api/editproductdata/${id}`)
             const record = await response.json()
             if (response.ok) {
                 setEdit(record.data)
@@ -48,7 +50,7 @@ const EditProducts = () => {
                 Pstatus: edit.productStatus
             }
 
-            const response = await fetch(`/api/productupdate/${id}`, {
+            const response = await fetch(`${API}/api/productupdate/${id}`, {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(fromData)

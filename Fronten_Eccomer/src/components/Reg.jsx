@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import {toast} from 'react-hot-toast'
 
+const API = import.meta.env.VITE_API_URL
 const Reg = () => {
     const navigate = useNavigate()
     const [showPassword, setShowPassword] = useState(true)
@@ -13,7 +14,7 @@ const Reg = () => {
     async function handleForm(e) {
         e.preventDefault()
         try {
-            const response = await fetch(`/api/regdata`, {
+            const response = await fetch(`${API}/api/regdata`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(form)
