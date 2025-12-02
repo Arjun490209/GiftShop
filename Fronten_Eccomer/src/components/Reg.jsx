@@ -58,6 +58,7 @@ const Reg = () => {
                     <div className='relative mb-4'>
                         <input type={showPassword ? "password" : "text"} placeholder='Enter password..' className='w-full border border-gray-500 px-4 py-2 rounded-2xl focus:outline-none focus:ring-2 focus:text-purple-600' name="pass" id="pass" value={form.pass}
                             onChange={handleChange}
+                            autocomplete="current-password"
                         />
                         <button type='button' onClick={() => (setShowPassword(!showPassword))} className='text-xl absolute top-3 right-3 hover:text-green-700'>
                             {showPassword ? <FaEyeSlash /> : <FaEye />}
